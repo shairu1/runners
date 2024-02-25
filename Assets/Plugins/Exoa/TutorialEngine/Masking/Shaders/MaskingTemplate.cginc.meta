@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 42dbfb3998de42d4795e67242d0d5f94
+timeCreated: 1483957966
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Masking/Shaders/MaskingTemplate.cginc
+  uploadId: 629045

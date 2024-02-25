@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2fc0ea307094c1e478560c1a100a48aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Demo/Localization/DemoTable_fr.asset
+  uploadId: 629045

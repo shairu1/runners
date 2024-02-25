@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f92ae58499065884bbb97d057636b815
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Common/Packages/UIElements/Resources/FontAwesomeInfo~~.asset
+  uploadId: 629045

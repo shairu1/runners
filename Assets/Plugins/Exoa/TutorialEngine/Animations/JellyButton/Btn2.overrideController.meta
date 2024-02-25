@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 34e33e6764abc402191b4bf57bbfc2a0
+timeCreated: 1436617672
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Animations/JellyButton/Btn2.overrideController
+  uploadId: 629045

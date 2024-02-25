@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Race;
 using UnityEngine;
 
-public class Accelerator : MonoBehaviour
+namespace Stuff
 {
-    private void OnTriggerStay2D(Collider2D coll)
+    public class Accelerator : MonoBehaviour
     {
-        if(coll?.gameObject?.tag == "Player")
+        private void OnTriggerStay2D(Collider2D coll)
         {
-            coll.gameObject.transform.Translate(Vector3.right * PlayerControl.MaxSpeedX * Time.deltaTime / 4);
+            if(coll?.gameObject?.tag == "Player")
+            {
+                coll.gameObject.transform.Translate(Vector3.right * PlayerControl.MaxSpeedX * Time.deltaTime / 4);
+            }
         }
     }
 }

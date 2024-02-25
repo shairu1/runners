@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 73b7e251c070a4b02950f92cb074e3bd
+timeCreated: 1436972702
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Animations/Popup/PopupCloseButton.controller
+  uploadId: 629045

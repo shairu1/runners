@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8e88a2d71941ec34d8853908ba08aff0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Common/Packages/UIElements/Editor/UnityEditor.UIElements.Expansions/ReorderableList.cs
+  uploadId: 629045

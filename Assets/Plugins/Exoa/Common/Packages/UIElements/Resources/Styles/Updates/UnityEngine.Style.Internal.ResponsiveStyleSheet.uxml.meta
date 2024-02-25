@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 38679a0c06bebde4190e2c0107bede63
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 13804, guid: 0000000000000000e000000000000000, type: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Common/Packages/UIElements/Resources/Styles/Updates/UnityEngine.Style.Internal.ResponsiveStyleSheet.uxml
+  uploadId: 629045

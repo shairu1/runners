@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: aa7aeffcbb715ca4484be442f845b441
+timeCreated: 1553804171
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Demo/Scripts/DemoCubeAnim.cs
+  uploadId: 629045

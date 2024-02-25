@@ -1,55 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using Stuff.Manager;
 using UnityEngine;
 
-public class FireballTrigger : MonoBehaviour
+namespace Stuff
 {
-    public FireballType Type;
-    public FireballDirection From;
-
-    private void OnTriggerEnter2D(Collider2D coll)
+    public class FireballTrigger : MonoBehaviour
     {
-        if(coll?.gameObject?.tag == "Player")
+        public FireballType Type;
+        public FireballDirection From;
+
+        private void OnTriggerEnter2D(Collider2D coll)
         {
-            Vector3 position = new Vector3();
-            Vector3 direction = new Vector3();
+            if(coll?.gameObject?.tag == "Player")
+            {
+                Vector3 position = new Vector3();
+                Vector3 direction = new Vector3();
 
-            if(From == FireballDirection.Left)
-            {
-                position = Camera.main.ScreenToWorldPoint(Vector3.zero);
-                position.x -= 5;
-                position.y = transform.position.y;
-                direction = Vector3.right;
-            }
-            else
-            {
+                if(From == FireballDirection.Left)
+                {
+                    position = UnityEngine.Camera.main.ScreenToWorldPoint(Vector3.zero);
+                    position.x -= 5;
+                    position.y = transform.position.y;
+                    direction = Vector3.right;
+                }
+                else
+                {
             
-                position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0));
-                position.x += 5;
-                position.y = transform.position.y;
-                direction = Vector3.left;
+                    position = UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0));
+                    position.x += 5;
+                    position.y = transform.position.y;
+                    direction = Vector3.left;
+                }
+
+                position.z = -5;
+
+                if(Type == FireballType.Fireball)
+                    StuffManager.CreateFireball(position, direction, Space.Self);
+                else
+                    StuffManager.CreateFireball(position, direction, Space.Self);
+
+                Destroy(gameObject);
             }
-
-            position.z = -5;
-
-            if(Type == FireballType.Fireball)
-                StuffManager.CreateFireball(position, direction, Space.Self);
-            else
-                StuffManager.CreateFireball(position, direction, Space.Self);
-
-            Destroy(gameObject);
         }
     }
-}
 
-public enum FireballType
-{
-    Fireball,
-    Iceball
-}
+    public enum FireballType
+    {
+        Fireball,
+        Iceball
+    }
 
-public enum FireballDirection
-{
-    Left,
-    Right
+    public enum FireballDirection
+    {
+        Left,
+        Right
+    }
 }

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a126735345aeedc4d87b142f4df79b14
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 13804, guid: 0000000000000000e000000000000000, type: 0}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Common/Packages/UIElements/Resources/Styles/Updates/UnityEditor.Style.EditorStyleInfo.uxml
+  uploadId: 629045

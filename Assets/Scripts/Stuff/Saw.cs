@@ -1,36 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using Race;
 using UnityEngine;
 
-public class Saw : MonoBehaviour
+namespace Stuff
 {
-    private Transform _transform;
-
-    private void Start()
+    public class Saw : MonoBehaviour
     {
-        _transform = GetComponent<Transform>();
-    }
+        private Transform _transform;
 
-    private void Update()
-    {
-        _transform.Rotate(new Vector3(0,0,2), Space.Self);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision2D)
-    {
-        if(collision2D?.gameObject?.tag == "Player")
+        private void Start()
         {
-            collision2D.gameObject.GetComponent<PlayerControl>().Kill();
+            _transform = GetComponent<Transform>();
+        }
+
+        private void Update()
+        {
+            _transform.Rotate(new Vector3(0,0,2), Space.Self);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision2D)
+        {
+            if(collision2D?.gameObject?.tag == "Player")
+            {
+                collision2D.gameObject.GetComponent<PlayerControl>().Kill();
+            }
+        }
+
+        private void OnBecameVisible() 
+        {
+            enabled = true;
+        }
+	
+        private void OnBecameInvisible() 
+        {
+            enabled = false;
         }
     }
-
-    private void OnBecameVisible() 
-	{
-		enabled = true;
-	}
-	
-	private void OnBecameInvisible() 
-	{
-		enabled = false;
-	}
 }

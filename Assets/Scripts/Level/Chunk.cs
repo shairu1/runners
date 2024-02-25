@@ -1,8 +1,10 @@
 
 using UnityEngine;
 
-
-public class Chunk : MonoBehaviour
+namespace Level
 {
-    public Vector3[] StartPositions;
+    public class Chunk : MonoBehaviour
+    {
+        public Vector3[] StartPositions;
+    }
 }

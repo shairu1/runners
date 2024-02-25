@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Race;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+namespace Stuff
 {
-    private void OnTriggerEnter2D(Collider2D coll)
+    public class Coin : MonoBehaviour
     {
-        if(coll?.gameObject?.tag == "Player")
+        private void OnTriggerEnter2D(Collider2D coll)
         {
-            GameManager.GetPlayer(coll.gameObject.GetComponent<PlayerControl>().HeroId).Score++;
-            Destroy(gameObject);
+            if(coll?.gameObject?.tag == "Player")
+            {
+                GameManager.GetPlayer(coll.gameObject.GetComponent<PlayerControl>().HeroId).Score++;
+                Destroy(gameObject);
+            }
         }
     }
 }

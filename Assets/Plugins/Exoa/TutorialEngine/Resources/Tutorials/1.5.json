@@ -1,0 +1,18 @@
+﻿{
+    "tutorial_steps": [
+        {
+            "text": "tutorial_step_1",
+            "target_obj": "",
+            "sendMessage": "",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        },
+        {
+            "text": "tutorial_step_2",
+            "target_obj": "",
+            "sendMessage": "",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        }
+    ]
+}

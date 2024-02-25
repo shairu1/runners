@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using Stuff.Manager;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+namespace Stuff
 {
-    private void OnCollisionEnter2D(Collision2D coll)
+    public class Platform : MonoBehaviour
     {
-        if(coll?.gameObject?.tag == "Player")
+        private void OnCollisionEnter2D(Collision2D coll)
         {
-            Invoke("Delete", 0.3f);
+            if(coll?.gameObject?.tag == "Player")
+            {
+                Invoke("Delete", 0.3f);
+            }
         }
-    }
 
-    private void Delete()
-    {
-        StuffManager.CreateBang(transform.position + Vector3.up * 1.5f);
-        Destroy(gameObject);
+        private void Delete()
+        {
+            StuffManager.CreateBang(transform.position + Vector3.up * 1.5f);
+            Destroy(gameObject);
+        }
     }
 }

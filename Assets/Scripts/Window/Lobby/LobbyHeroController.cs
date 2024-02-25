@@ -1,55 +1,57 @@
 ﻿using UnityEngine;
 
-
-public partial class LobbyManager
+namespace Window.Lobby
 {
-    public class LobbyHeroController : MonoBehaviour
+    public partial class LobbyManager
     {
-        private const float DistanceToButton = 2.75f;
+        public class LobbyHeroController : MonoBehaviour
+        {
+            private const float DistanceToButton = 2.75f;
 
-        private int _heroId;
-        private Transform _transform;
-        private Vector3 _offset;
-        private bool _isDestroyed;
+            private int _heroId;
+            private Transform _transform;
+            private Vector3 _offset;
+            private bool _isDestroyed;
         
-        public void Init(int heroId) 
-        {
-            _isDestroyed = false;
-            _heroId = heroId;
-            _transform = GetComponent<Transform>();
-        }
-
-        private void Update()
-        {
-            foreach (var item in instance._playerContents)
+            public void Init(int heroId) 
             {
-                if (Vector2.Distance(_transform.position, item._transform.position) < DistanceToButton)
+                _isDestroyed = false;
+                _heroId = heroId;
+                _transform = GetComponent<Transform>();
+            }
+
+            private void Update()
+            {
+                foreach (var item in instance._playerContents)
                 {
-                    if (!item.used)
+                    if (Vector2.Distance(_transform.position, item._transform.position) < DistanceToButton)
                     {
-                        instance.SetPlayerInContent(item, _heroId);
-                        if (!_isDestroyed) Destroy(gameObject);
-                        return;
+                        if (!item.used)
+                        {
+                            instance.SetPlayerInContent(item, _heroId);
+                            if (!_isDestroyed) Destroy(gameObject);
+                            return;
+                        }
                     }
                 }
             }
-        }
 
-        private void OnMouseDown()
-        {
-            _offset = gameObject.transform.position -
-                Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        }
+            private void OnMouseDown()
+            {
+                _offset = gameObject.transform.position -
+                          UnityEngine.Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            }
 
-        private void OnMouseDrag()
-        {
-            Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-            _transform.position = Camera.main.ScreenToWorldPoint(newPosition) + _offset;
-        }
+            private void OnMouseDrag()
+            {
+                Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+                _transform.position = UnityEngine.Camera.main.ScreenToWorldPoint(newPosition) + _offset;
+            }
 
-        private void OnDestroy()
-        {
-            _isDestroyed = true;
+            private void OnDestroy()
+            {
+                _isDestroyed = true;
+            }
         }
     }
 }

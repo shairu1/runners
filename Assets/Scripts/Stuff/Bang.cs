@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Bang : MonoBehaviour
+namespace Stuff
 {
-    public void Delete()
+    public class Bang : MonoBehaviour
     {
-        Destroy(gameObject);
+        public void Delete()
+        {
+            Destroy(gameObject);
+        }
     }
 }

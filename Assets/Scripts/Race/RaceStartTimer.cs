@@ -1,55 +1,57 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public partial class RaceManager : MonoBehaviour
+namespace Race
 {
-    public class RaceStartTimer : MonoBehaviour
+    public partial class RaceManager : MonoBehaviour
     {
-        private Text _timerText;
-        private UnityAction _endAction;
-
-        private const float StartTextSize = 0.7f;
-        private const float EndTextSize = 1f;
-
-        public void Init(Text timer, UnityAction atEnd)
+        public class RaceStartTimer : MonoBehaviour
         {
-            _timerText = timer;
-            _endAction = atEnd;
+            private Text _timerText;
+            private UnityAction _endAction;
 
-            StartCoroutine(StartTimer());
-        }
+            private const float StartTextSize = 0.7f;
+            private const float EndTextSize = 1f;
 
-        private IEnumerator StartTimer()
-        {
-            _timerText.gameObject.SetActive(true);
-
-            int seconds = 3;
-
-            for (int s = seconds; s > 0; s--)
+            public void Init(Text timer, UnityAction atEnd)
             {
-                _timerText.text = s.ToString();
+                _timerText = timer;
+                _endAction = atEnd;
 
-                for (int i = 0; i < 50; i++)
-                {
-                    yield return new WaitForSeconds(0.02f);
-                    float size = StartTextSize + ((EndTextSize - StartTextSize) * i * 0.02f);
-                    transform.localScale = new Vector3(size, size, size);
-                }
+                StartCoroutine(StartTimer());
             }
 
-            _timerText.text = "Go";
-            _endAction?.Invoke();
+            private IEnumerator StartTimer()
+            {
+                _timerText.gameObject.SetActive(true);
 
-            yield return new WaitForSeconds(0.3f);
+                int seconds = 3;
 
-            _timerText.gameObject.SetActive(false);
+                for (int s = seconds; s > 0; s--)
+                {
+                    _timerText.text = s.ToString();
 
-            Destroy(this);
+                    for (int i = 0; i < 50; i++)
+                    {
+                        yield return new WaitForSeconds(0.02f);
+                        float size = StartTextSize + ((EndTextSize - StartTextSize) * i * 0.02f);
+                        transform.localScale = new Vector3(size, size, size);
+                    }
+                }
+
+                _timerText.text = "Go";
+                _endAction?.Invoke();
+
+                yield return new WaitForSeconds(0.3f);
+
+                _timerText.gameObject.SetActive(false);
+
+                Destroy(this);
             
-            yield break;
+                yield break;
+            }
         }
     }
 }

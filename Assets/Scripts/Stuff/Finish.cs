@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Race;
 using UnityEngine;
 
-public class Finish : MonoBehaviour
+namespace Stuff
 {
-    private void OnCollisionEnter2D(Collision2D coll)
+    public class Finish : MonoBehaviour
     {
-        if(coll?.gameObject?.tag == "Player")
+        private void OnCollisionEnter2D(Collision2D coll)
         {
-            coll.gameObject.GetComponent<PlayerControl>().Finish();
+            if(coll?.gameObject?.tag == "Player")
+            {
+                coll.gameObject.GetComponent<PlayerControl>().Finish();
+            }
         }
     }
 }

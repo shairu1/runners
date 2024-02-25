@@ -1,9 +1,12 @@
 ﻿
 
-public enum WindowTransitionType
+namespace Window
 {
-    Menu,
-    MenuToLobby,
-    LobbyToGame,
-    GameToLobby
+    public enum WindowTransitionType
+    {
+        Menu,
+        MenuToLobby,
+        LobbyToGame,
+        GameToLobby
+    }
 }

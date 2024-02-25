@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Race;
 using UnityEngine;
 
 // Шип
-public class Thorn : MonoBehaviour
+namespace Stuff
 {
-    private void OnCollisionEnter2D(Collision2D collision2D)
+    public class Thorn : MonoBehaviour
     {
-        if(collision2D?.gameObject?.tag == "Player")
+        private void OnCollisionEnter2D(Collision2D collision2D)
         {
-            collision2D.gameObject.GetComponent<PlayerControl>().Kill();
+            if(collision2D?.gameObject?.tag == "Player")
+            {
+                collision2D.gameObject.GetComponent<PlayerControl>().Kill();
+            }
         }
     }
 }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f43cfc0272a3b41cbab0283f404ae52b
+timeCreated: 1436793357
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Animations/Popup/PopupAnimation.controller
+  uploadId: 629045

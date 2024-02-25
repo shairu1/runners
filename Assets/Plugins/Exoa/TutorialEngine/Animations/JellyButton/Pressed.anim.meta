@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0951837dba7744a76a7cd61e18485992
+timeCreated: 1436611034
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Animations/JellyButton/Pressed.anim
+  uploadId: 629045

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eadad20665c5fb44eb0701e3af70715b
+timeCreated: 1475501811
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/TutorialEngine/Masking/Materials/MaskNormal.mat
+  uploadId: 629045

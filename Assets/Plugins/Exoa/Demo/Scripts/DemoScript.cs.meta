@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: dd54ac9cffe4cb94189146a5e9631360
+timeCreated: 1558728985
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 148854
+  packageName: Tutorial Engine 2023 - Easy Step-By-Step Tutorial Creator!
+  packageVersion: 2.0.10
+  assetPath: Assets/Exoa/Demo/Scripts/DemoScript.cs
+  uploadId: 629045

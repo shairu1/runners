@@ -1,7 +1,10 @@
-﻿public enum PositionOnTheScreen
+﻿namespace UI
 {
-    TopLeft,
-    TopRight,
-    BottomLeft,
-    BottomRight
+    public enum PositionOnTheScreen
+    {
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight
+    }
 }

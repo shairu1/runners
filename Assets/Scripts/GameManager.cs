@@ -1,8 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using CameraLogic;
+using Player;
+using Race;
+using UI;
 using UnityEngine;
-using UnityEngine.UI;
+using Window;
+using Window.MainMenu;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game")]
     [SerializeField] private HeroPrefab[] _heroPrefabs;
-    [SerializeField] private List<Player> _players;
+    [SerializeField] private List<Player.Player> _players;
     [SerializeField] private Transform _mapTransform;
     [SerializeField] private int[] _places; // место (которое занял игрок) (по ид)
 
@@ -30,10 +33,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _players = new List<Player>();
-        var _cameraMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
-        _cameraMovement.Init();
-        _cameraMovement.SetActive(false);
+        _players = new List<Player.Player>();
+        var cameraMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
+        cameraMovement.Init();
+        cameraMovement.SetActive(false);
 
         MenuManager.SetStartValues();
         WindowController.SwitchWindow(WindowTransitionType.Menu);
@@ -60,15 +63,15 @@ public class GameManager : MonoBehaviour
 
     public static void AddPlayer(int heroId, PositionOnTheScreen screenPosition, int score = 0)
     {
-        instance._players.Add(new Player(heroId, screenPosition, score));
+        instance._players.Add(new Player.Player(heroId, screenPosition, score));
     }
 
-    public static Player[] GetPlayers()
+    public static Player.Player[] GetPlayers()
     {
         return instance._players.ToArray();
     }
 
-    public static Player GetPlayer(int heroId)
+    public static Player.Player GetPlayer(int heroId)
     {
         for (int i = 0; i < instance._players.Count; i++)
         {

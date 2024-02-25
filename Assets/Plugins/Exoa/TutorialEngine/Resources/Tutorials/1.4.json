@@ -1,0 +1,32 @@
+﻿{
+    "tutorial_steps": [
+        {
+            "text": "Hello! In this tutorial the new \"send message\" variable in every tutorial step has been set to call a function on the popup.",
+            "target_obj": "",
+            "sendMessage": "StepHello",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        },
+        {
+            "text": "Select the TutorialPopup gameobject and notice the example script called \"SendMessageDemo\"",
+            "target_obj": "",
+            "sendMessage": "StepPopup",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        },
+        {
+            "text": "Each \"send message\" field will call a corresponding function on that script, to change the sprite image in the popup",
+            "target_obj": "",
+            "sendMessage": "StepSendMessage",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        },
+        {
+            "text": "Use this feature to customize the popup, instantiate an object, play a sound or anything you need!",
+            "target_obj": "",
+            "sendMessage": "StepCustomize",
+            "isClickable": false,
+            "isReplacingNextButton": false
+        }
+    ]
+}

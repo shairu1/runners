@@ -1,128 +1,135 @@
-using System.Collections;
 using System.Collections.Generic;
+using Animations;
+using CameraLogic;
+using Level;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Window;
 
-public partial class RaceManager : MonoBehaviour
+namespace Race
 {
-    private static RaceManager instance;
-
-    [Header("UI")]
-    [SerializeField] private Text _timerText;
-
-    [Header("Player controls")]
-    [SerializeField] private List<PlayerControl> _playerControls; // in play
-
-    private void Awake() => instance = this;
-
-    public static void CreateRace()
+    public partial class RaceManager : MonoBehaviour
     {
-        LevelManager.CreateLevel();     // create level
-        CreatePlayers();                // create players
-        UIGameManager.UpdateButtons();  // update buttons
-        InitializeCamera();             // init camera
+        private static RaceManager instance;
 
-        AnimationEvents.endLobbyToGame += EndAnimationLobbyToGame;
-        WindowController.SwitchWindow(WindowTransitionType.LobbyToGame);
-    }
+        [Header("UI")]
+        [SerializeField] private Text _timerText;
 
-    private static void CreatePlayers()
-    {
-        instance._playerControls.Clear();
+        [Header("Player controls")]
+        [SerializeField] private List<PlayerControl> _playerControls; // in play
 
-        Player[] players = GameManager.GetPlayers();
-        Vector3[] positions = LevelManager.PlayerPositionsOnLevel;
-        Vector3 position;
+        private void Awake() => instance = this;
 
-        for (int i = 0; i < players.Length; i++)
+        public static void CreateRace()
         {
-            var go = Instantiate(
-                GameManager.GetPlayerPrefab(players[i].HeroId).Prefab,
-                Vector3.zero,
-                Quaternion.identity
-            );
+            LevelManager.CreateLevel();     // create level
+            CreatePlayers();                // create players
+            UIGameManager.UpdateButtons();  // update buttons
+            InitializeCamera();             // init camera
 
-            position = positions[i];
-            position.z = -1;
-            go.transform.position = position;
-
-            PlayerControl pc = go.GetComponent<PlayerControl>();
-            pc.Init(players[i].HeroId);
-            pc.SetEnabled(false);
-            instance._playerControls.Add(pc);
-        }
-    }
-
-    private static void InitializeCamera()
-    {
-        var _cameraMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
-        _cameraMovement.SetStartPosition();
-        _cameraMovement.SetActive(true);
-    }
-
-    public static PlayerControl GetPlayerControl(int heroId)
-    {
-        foreach (var item in instance._playerControls)
-        {
-            if (item.HeroId == heroId)
-                return item;
+            AnimationEvents.endLobbyToGame += EndAnimationLobbyToGame;
+            WindowController.SwitchWindow(WindowTransitionType.LobbyToGame);
         }
 
-        Debug.LogError($"heroId = {heroId} not found");
-        return null;
-    }
-
-    public static PlayerControl[] GetPlayerControls()
-    {
-        return instance._playerControls.ToArray();
-    }
-
-    // вызывается, когда анимация перехода из лобби в игру закончена
-    private static void EndAnimationLobbyToGame()
-    {
-        var timer = instance.gameObject.AddComponent<RaceStartTimer>();
-        timer.Init(instance._timerText, EndGameTimer);
-        AnimationEvents.endLobbyToGame -= EndAnimationLobbyToGame;
-    }
-
-    // вызывается, когда заканчивается таймер начала игры
-    private static void EndGameTimer()
-    {
-        foreach(var item in instance._playerControls)
+        private static void CreatePlayers()
         {
-            item.SetEnabled(true);
+            instance._playerControls.Clear();
+
+            Player.Player[] players = GameManager.GetPlayers();
+            Vector3[] positions = LevelManager.PlayerPositionsOnLevel;
+            Vector3 position;
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                var go = Instantiate(
+                    GameManager.GetPlayerPrefab(players[i].HeroId).Prefab,
+                    Vector3.zero,
+                    Quaternion.identity
+                );
+
+                position = positions[i];
+                position.z = -1;
+                go.transform.position = position;
+
+                PlayerControl pc = go.GetComponent<PlayerControl>();
+                pc.Init(players[i].HeroId);
+                pc.SetEnabled(false);
+                instance._playerControls.Add(pc);
+            }
         }
-    }
 
-    public static void PlayerFinished(int heroId)
-    {
-        GameManager.GetPlayer(heroId).Score += instance._playerControls.Count;
-        RemovePlayerControl(heroId);
-        CheckEndRace();
-    }
-
-    public static void PlayerLost(int heroId)
-    {
-        GameManager.GetPlayer(heroId).Score += GameManager.CountPlayers - instance._playerControls.Count + 1;
-        RemovePlayerControl(heroId);
-        CheckEndRace();
-    }
-
-    private static void RemovePlayerControl(int heroId)
-    {
-        for (int i = 0; i < instance._playerControls.Count; i++)
+        private static void InitializeCamera()
         {
-            if (instance._playerControls[i].HeroId == heroId)
-            { instance._playerControls.RemoveAt(i); break; }
+            var _cameraMovement = UnityEngine.Camera.main.gameObject.GetComponent<CameraMovement>();
+            _cameraMovement.SetStartPosition();
+            _cameraMovement.SetActive(true);
         }
-    }
 
-    private static void CheckEndRace()
-    {
-        if (instance._playerControls.Count > 0) return; // race continues
+        public static PlayerControl GetPlayerControl(int heroId)
+        {
+            foreach (var item in instance._playerControls)
+            {
+                if (item.HeroId == heroId)
+                    return item;
+            }
 
-        instance._playerControls.Clear();
+            Debug.LogError($"heroId = {heroId} not found");
+            return null;
+        }
 
-        WindowController.SwitchWindow(WindowTransitionType.GameToLobby);
+        public static PlayerControl[] GetPlayerControls()
+        {
+            return instance._playerControls.ToArray();
+        }
+
+        // РІС‹Р·С‹РІР°РµС‚СЃСЏ, РєРѕРіРґР° Р°РЅРёРјР°С†РёСЏ РїРµСЂРµС…РѕРґР° РёР· Р»РѕР±Р±Рё РІ РёРіСЂСѓ Р·Р°РєРѕРЅС‡РµРЅР°
+        private static void EndAnimationLobbyToGame()
+        {
+            var timer = instance.gameObject.AddComponent<RaceStartTimer>();
+            timer.Init(instance._timerText, EndGameTimer);
+            AnimationEvents.endLobbyToGame -= EndAnimationLobbyToGame;
+        }
+
+        // РІС‹Р·С‹РІР°РµС‚СЃСЏ, РєРѕРіРґР° Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ С‚Р°Р№РјРµСЂ РЅР°С‡Р°Р»Р° РёРіСЂС‹
+        private static void EndGameTimer()
+        {
+            foreach(var item in instance._playerControls)
+            {
+                item.SetEnabled(true);
+            }
+        }
+
+        public static void PlayerFinished(int heroId)
+        {
+            GameManager.GetPlayer(heroId).Score += instance._playerControls.Count;
+            RemovePlayerControl(heroId);
+            CheckEndRace();
+        }
+
+        public static void PlayerLost(int heroId)
+        {
+            GameManager.GetPlayer(heroId).Score += GameManager.CountPlayers - instance._playerControls.Count + 1;
+            RemovePlayerControl(heroId);
+            CheckEndRace();
+        }
+
+        private static void RemovePlayerControl(int heroId)
+        {
+            for (int i = 0; i < instance._playerControls.Count; i++)
+            {
+                if (instance._playerControls[i].HeroId == heroId)
+                { instance._playerControls.RemoveAt(i); break; }
+            }
+        }
+
+        private static void CheckEndRace()
+        {
+            if (instance._playerControls.Count > 0) return; // race continues
+
+            instance._playerControls.Clear();
+
+            WindowController.SwitchWindow(WindowTransitionType.GameToLobby);
+        }
     }
 }
