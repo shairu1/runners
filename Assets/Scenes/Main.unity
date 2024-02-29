@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialController
       objectReference: {fileID: 0}
+    - target: {fileID: 224020470404315524, guid: 497ccb53489626241b379ce825dd2839, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11.699997
+      objectReference: {fileID: 0}
+    - target: {fileID: 224059655959804256, guid: 497ccb53489626241b379ce825dd2839, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80.40001
+      objectReference: {fileID: 0}
     - target: {fileID: 224104111893063524, guid: 497ccb53489626241b379ce825dd2839, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -161,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224364559218562686, guid: 497ccb53489626241b379ce825dd2839, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 455.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224364559218562686, guid: 497ccb53489626241b379ce825dd2839, type: 3}
       propertyPath: m_AnchoredPosition.y
